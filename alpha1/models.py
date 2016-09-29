@@ -1,6 +1,11 @@
 from django.db import models
 
 # Create your models here.
+class Especializacion(models.Model):
+	descripcion = models.CharField("Especializacion", max_length=30)
+
+	def __str__(self):
+		return ('%s')%(self.descripcion)
 
 class Veterinario(models.Model):
 	nombre = models.CharField("Nombre", max_length=30)
@@ -20,15 +25,10 @@ class Veterinario(models.Model):
 	fecha_baja = models.DateField("Fecha de Baja", auto_now=False, null=True, blank=True)
 	acreditacion_brucelosis = models.CharField("Numero de Acreditacion de Brucelosis", max_length=15, null=True, blank=True)
 	acreditacion_aie = models.CharField("Numero de Acreditacion de A.I.E.", max_length=15, null=True, blank=True)
+	especializaciones = models.ManyToManyField(Especializacion)
 
 	def __str__(self):
 		return ('%s, %s')%(self.apellido, self.nombre)
-
-class Especializacion(models.Model):
-	descripcion = models.CharField("Especializacion", max_length=30)
-
-	def __str__(self):
-		return ('%s')%(self.descripcion)
 
 class Categoria(models.Model):
 	descripcion = models.CharField("Categoria", max_length=30)
@@ -54,12 +54,6 @@ class TipoMuestra(models.Model):
 	def __str__(self):
 		return ('%s')%(self.descripcion)
 
-class Tecnicas(models.Model):
-	descripcion = models.CharField("Tecnica", max_length=30)
-
-	def __str__(self):
-		return ('%s')%(self.descripcion)
-
 class Parametros(models.Model):
 	descripcion = models.CharField("Parametro", max_length=30)
 	tipo_de_dato_choices = (
@@ -73,6 +67,26 @@ class Parametros(models.Model):
 
 	def __str__(self):
 		return ('%s')%(self.descripcion)
+
+class Tecnicas(models.Model):
+	descripcion = models.CharField("Tecnica", max_length=30)
+	parametros = models.ManyToManyField(Parametros)
+	tipoMuestra = models.ManyToManyField(TipoMuestra, through='tecXmuestraXanim')
+
+	def __str__(self):
+		return ('%s')%(self.descripcion)
+
+class tecXmuestraXanim(models.Model):
+	id = models.AutoField(primary_key=True)
+	muestra = models.ForeignKey(TipoMuestra)
+	tecnica = models.ForeignKey(Tecnicas)
+	animal = models. ForeignKey(TipoAnimal)
+
+	class Meta:
+		unique_together = ('muestra', 'tecnica', 'animal',)
+
+	def __str__(self):
+		return ('%s %s %s')%(self.tecnica, self.muestra, self.animal)
 
 class Motivos(models.Model):
 	nombre = models.CharField(max_length=30)
@@ -95,3 +109,50 @@ class Individuos(models.Model):
 
 	def __str__(self):
 		return ('%s %s %s')%(self.identificacion, self.nombre, self.sexo)
+
+class Establecimiento(models.Model):
+	nombre = models.CharField(max_length=50)
+	partido = models.CharField(max_length=20)
+	propietario = models.CharField(max_length=30)
+	RENSPA = models.CharField(max_length=30)
+	veterinario = models.ForeignKey(Veterinario, verbose_name="Veterinario de Cabecera")
+	hectareas = models.IntegerField("Cant. de Hectareas", null=True, blank=True)
+	bovinos = models.IntegerField("Cant. de Hectareas", null=True, blank=True)
+	ovinos = models.IntegerField("Cant. de Hectareas", null=True, blank=True)
+	categorias = models.ManyToManyField(Categoria)
+	explotacion = models.ManyToManyField(Explotacion)
+
+	def __str__(self):
+		return ('%s %s')%(self.nombre, self.partido)
+
+class Raza(models.Model):
+	nombre = models.CharField(max_length=30)
+	tipoAnimal = models.ForeignKey(TipoAnimal)
+
+	def __str__(self):
+		return('%s, %s')%(self.nombre, self.tipoAnimal)
+
+class InicioDeCarga(models.Model):
+	id = models.AutoField(primary_key=True)
+	veterinario = models.ForeignKey(Veterinario)
+	establecimiento = models.ForeignKey(Establecimiento)
+	motivo = models.ForeignKey(Motivos)
+	tipoAnimal = models.ForeignKey(TipoAnimal)
+	fecha = models.DateField(auto_now=False)
+	cant_indiv = models.IntegerField()
+	raza = models.ForeignKey(Raza, null=True, blank=True)
+	obs = models.TextField("Observaciones", null=True, blank=True)
+
+	def __str__(self):
+		return('%d')%(self.id)
+
+class Protocolo(models.Model):
+	numero = models.IntegerField("Numero de Protocolo", primary_key=True)
+	tecXmuest = models.ForeignKey(tecXmuestraXanim, verbose_name="Tecnicas")
+	inicioCarga = models.ForeignKey(InicioDeCarga, verbose_name="????")
+	individuos = models.ManyToManyField(Individuos)
+	estado = models.BooleanField("Estado Confirmado")
+	obs = models.TextField("Observaciones sobre el Estado")
+
+	def __str__(self):
+		return('%d')%(self.numero)
