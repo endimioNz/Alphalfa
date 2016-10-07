@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if form.errors %}
+
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+		<p>Your account doesn't have access to this page. To proceed,please login with an account that has access.</p>
+    {% else %}
+		<p>Ingrese sus datos para entrar</p>
+    {% endif %}
+{% endif %}
+
+
+	<div class="container">
+
+
+
+		<h1>Bienvenido</h1>
+		
+		<form class="form" id="login_form" method="POST">{% csrf_token %} 
+			{{ form.username }}
+			{{ form.password }}
+			
+			<button type="submit" id="login-button">Ingresar</button>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	</div>
+	
+	{% endblock %}
+
+{% block javascript %}
+
+
+<script>
+{% if not user.is_authenticated %}
+$("ul.nav.navbar-nav.navbar-right").css("display","none");
+{% endif %}
+</script>
+
+{% endblock %}

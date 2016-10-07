@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse 
 
 # Create your models here.
 class Especializacion(models.Model):
@@ -29,6 +30,9 @@ class Veterinario(models.Model):
 
 	def __str__(self):
 		return ('%s, %s')%(self.apellido, self.nombre)
+
+	def get_absolute_url(self):
+		return reverse("alpha:detalle", kwargs={"id": self.id}) #keyword args
 
 class Categoria(models.Model):
 	descripcion = models.CharField("Categoria", max_length=30)

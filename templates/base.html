@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Alphalfa</title>
+        <link rel="stylesheet" href="/static/css/style2.css">
+  </head>
+  <body>
+    <div class="wrapper">
+
+    {%  include 'includes/menu.html' %}
+
+		{% block content %} {% endblock %}
+	
+	</div>
+    {% block javascript %}
+        {% endblock %}
+  </body>
+</html>
+

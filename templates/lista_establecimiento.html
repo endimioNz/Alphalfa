@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1 align="center"> {{title}}</h1> 
+<table border='1' align='center'>
+
+{%for obj in object_list %}<tr> 
+<td>{{obj.nombre}}</td>
+<td>{{obj.partido}}</td>
+<td>{{obj.propietario}}</td>
+<td>{{obj.categorias}}</td>
+<td>{{obj.descripcion}}</td>
+<td>{{obj.explotacion}}</td> </tr>
+{% endfor %}
+</table>
+
+<input type=button value="Inicio" onClick="javascript:history.go(-1);">
+</body>
+</html>
+
