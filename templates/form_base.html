@@ -1,10 +1,7 @@
-<!--DOCTYPE HTML-->
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
+
 <h1>Form</h1>
 <form method="POST" action=""> {% csrf_token %}
  {{form.as_p}}
@@ -12,5 +9,4 @@
 </form>
 <input type=button value="Inicio" onClick="javascript:history.go(-1);">
 
-</body>
-</html>
+{% endblock %}

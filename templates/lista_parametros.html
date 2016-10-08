@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 
 <h1 align="center"> {{title}}</h1> 
 <table border='1' align='center'>
@@ -22,5 +18,6 @@
 </table>
 
 <input type=button value="Inicio" onClick="javascript:history.go(-1);">
-</body>
-</html>
+
+
+{% endblock %}
