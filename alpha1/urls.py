@@ -24,4 +24,5 @@ urlpatterns = [
 	url(r'^parametro_form/$', views.a_parametro),
 	url(r'^establecimiento_form/$', views.a_establecimiento),
 
+	url(r'^prueba/', views.prueba),
 ]

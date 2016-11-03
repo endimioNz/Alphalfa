@@ -12,7 +12,8 @@ from django.contrib import messages
 def principal(request):
 	return render(request, "principal.html")
 	
-
+def prueba(request):
+	return render(request, "prueba.html")
 
 def logout_view(request):
     logout(request)

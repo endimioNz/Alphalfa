@@ -1,0 +1,97 @@
+basededatos-jonathan-delatorre.blogspot.com.ar/2012/04/la-cuarta-forma-normal-4fn.html
+
+cvva.wordpress.com/2007/12/04/normalizacion-de-bases-de-datos-las-3-formas-normales/
+
+#################### notas sobre crispy
+
+django-crispy-forms.readthedocs
+
+imports:
+### from crispy_forms.helper import FormHelper
+### {% load crispy_forms_tags %} --> agregarlo en el template
+<form method="POST">
+	{{ my_formset|crispy }}
+</form>
+
+--> pero es mejor {% crispy %}
+
+
+tagsand filters:
+|crispy
+{% crispy %}
+|as_crispy_errors
+|as_crispy_field
+{% crispy_field field %}
+
+#################### notas sobre bootstrap 
+
+- los archivoos ".min.css" son iguales a los ".css" solo que minimizados para reducir el peso.
+
+- los archivos ".map" no se usan
+
+- el archivo "style2.css" tiene que sobreescribir los valores de bootstrap, usando las etiquetas "id", "class".
+
+columnas:
+	
+	col-xs-(num de columnas) (extra small: para celulares)
+	col-sm-					(small: para celus grandes o tabltas chicas) 
+	col-md-(num de columnas) (mediano: tableta grandes en horizontal)
+	col-lg-					(largo para compus de escritorio)
+
+
+etiquetas para tipografias:
+
+<p class="lead">  Texto mas grande </p>
+<p class="">  <mark> Texto resaltado como con highlighter </mark> </p>
+<p class="">  <del> Texto tachado para indicar que va a ser borrado </del> </p>
+<p class="">  <s> Texto tachado </s> </p>
+<p class="">  <ins> Texto subrayado para indicar que ha sido inserado </ins> </p>
+<p class="">  <u> Texto subrayado </u> </p>
+<p class="">  <small> Texto mas pequeño </small> </p>
+<p class="">  <strong> Texto negritas </strong> </p>
+<p class="">  <b> Texto negritas </b> </p>
+<p class="">  <em> Texto italicas </em> </p>
+
+alineacion:
+
+<div class="col-md-4 text-left">   --> alineacion izq.
+<div class="col-md-4 text-center">   --> alineacion centrado.
+<div class="col-md-4 text-right">   --> alineacion derecha.
+<div class="col-md-4 text-justify">   --> alineacion justificado
+
+upper/lowercase (se puede aplicar por parrafos o al div directamente)
+
+<p class="text-uppercase">  Texto en mayusculas </p>
+<p class="text-lowercase">  Texto en minusculas </p>
+<p class="text-capitalize">  Texto primera letra mayuscula </p>
+
+citas
+
+<blockquote>
+	<p>
+		Cita de un texto
+	</p>
+	<footer> Autor de la cita <cite title="Fuente"> Fuente de donde se saco </cite> </footer>
+</blockquote>
+
+codigo
+
+<code> Para que el texto se vea como codigo</code>
+<pre> Para que el texto se vea como codigo en un bloque con scroll</pre>
+
+colores textos
+
+<h1 class="text-muted"> Texto </h1>
+<h1 class="text-primary"> Texto </h1>
+<h1 class="text-success"> Texto </h1>
+<h1 class="text-info"> Texto </h1>
+<h1 class="text-warning"> Texto </h1>
+<h1 class="text-danger"> Texto </h1>
+
+colores de fondo para los textos
+
+<h1 class="bg-primary"> Texto </h1>
+<h1 class="bg-success"> Texto </h1>
+<h1 class="bg-info"> Texto </h1>
+<h1 class="bg-warning"> Texto </h1>
+<h1 class="bg-danger"> Texto </h1>

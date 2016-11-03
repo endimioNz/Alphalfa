@@ -3,10 +3,11 @@
 
 
 <h1>Form</h1>
-<form method="POST" action=""> {% csrf_token %}
- {{form.as_p}}
- <input type="submit" value="Cargar">
+
+<form method="POST" class="form loginform" action=""> {% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Cargar</button>
 </form>
-<input type=button value="Inicio" onClick="javascript:history.go(-1);">
+<input type="button" value="Inicio" onClick="javascript:history.go(-1);">
 
 {% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container"> 
+	<!-- container nos centra el texto -->
+	<section class="main row">
+		<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+			<h1 class="text-muted"> Texto </h1>
+<h4 class="text-primary"> primary </h4>
+<h4 class="text-success"> success </h4>
+<h4 class="text-info"> info </h4>
+<h4 class="text-warning"> warning </h4>
+<h4 class="text-danger"> danger </h4>
+
+<h4 class="bg-primary"> Texto </h4>
+<h4 class="bg-success"> Texto </h4>
+<h4 class="bg-info"> Texto </h4>
+<h4 class="bg-warning"> Texto </h4>
+<h4 class="bg-danger"> Texto </h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<blockquote>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			</blockquote>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.<code> Esto es codigo </code> Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</article>
+		<aside class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</aside>
+	</section>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<h3>Columna 1</h3>
+			<p  class="text-lowercase">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+			</p>
+		</div>
+		<div class="color1 col-xs-12 col-sm-6 col-md-3">
+			<h3>Columna 2</h3>
+			<p  class="text-uppercase">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+			</p>		
+		</div>
+		
+		<div class="clearfix visible-sm-block"></div> 
+		<!-- clearfix para arreglar cuando se ve desorganizado cuando se achica la pantalla -->
+
+		<!-- <div class="col-xs-12 col-sm-6 col-md-3">
+			<h3>Columna 3</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+			</p>
+		</div> -->
+		<div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-3"> <!-- offset sirve para correr las columnas -->
+			<h3>Columna 4</h3>
+			<p  class="text-capitalize">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+			</p>
+		</div>
+
+	</div>
+
+</div>
+
+{% endblock %}

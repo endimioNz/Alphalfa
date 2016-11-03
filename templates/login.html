@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if form.errors %}
-
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-		<p>Your account doesn't have access to this page. To proceed,please login with an account that has access.</p>
-    {% else %}
-		<p>Ingrese sus datos para entrar</p>
-    {% endif %}
-{% endif %}
 
 
-	<div class="container">
+<div class="container">
+	<h1>Bienvenido</h1>
+		<center>
+			{% if form.errors %}
+				<p>Your username and password didn't match. Please try again.</p>
+			{% endif %}
 
+			{% if next %}
+				{% if user.is_authenticated %}
+					<p>Your account doesn't have access to this page. To proceed,please login with an account that has access.</p>
+				{% else %}
+					<p>Ingrese sus datos para entrar</p>
+				{% endif %}
+			{% endif %}
+		</center>
 
-
-		<h1>Bienvenido</h1>
-		
-		<form class="form" id="login_form" method="POST">{% csrf_token %} 
+		<form class="form loginform" id="login_form" method="POST">{% csrf_token %} 
 			{{ form.username }}
 			{{ form.password }}
 			

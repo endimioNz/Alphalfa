@@ -3,20 +3,44 @@
 <!DOCTYPE html>
 <html >
   <head>
-    <meta charset="UTF-8">
-    <title>Alphalfa</title>
-        <link rel="stylesheet" href="/static/css/style2.css">
+	 <meta charset="UTF-8">
+	 <title>Alphalfa</title>
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
+	 <!-- meta viewport para maparatos mobiles -->
+	 
+	 <link rel="stylesheet" href="/static/css/bootstrap.css">
+	 <!-- <link rel="stylesheet" href="/static/css/prueba.css">  -->  
+	 <link rel="stylesheet" href="/static/css/style3.css">
   </head>
-  <body>
-    <div class="wrapper">
-
-    {%  include 'includes/menu.html' %}
-
-		{% block content %} {% endblock %}
-	
-	</div>
-    {% block javascript %}
-        {% endblock %}
-  </body>
+	<body>
+		<!-- CABECERA -->
+		<header>
+			<div class="container">
+				<ul class="list-inline">
+				  <li>
+				  		<h1>Laboratorio</h1>
+				  </li>
+				  <li class="pull-right">
+					{%  include 'includes/menu.html' %}
+				  </li>
+				</ul>
+			</div>
+		</header>
+		<!-- CONTENIDO -->
+		<div class="wrapper">
+			{% block content %}
+			{% endblock %}
+		</div>
+		<!-- PIE -->
+		<footer>
+			<div class="container">
+				<p>Copyright (c) 2016</p>
+			</div>
+		</footer>
+		<!-- JAVASCRIPT -->
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/bootstrap.js"></script>
+		{% block javascript %} {% endblock %}
+	</body>
 </html>
 
