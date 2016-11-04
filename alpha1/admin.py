@@ -2,20 +2,24 @@ from django.contrib import admin
 
 # Register your models here.
 
-from alpha1.models import Veterinario, Especializacion, Categoria, Explotacion, TipoAnimal, TipoMuestra, Tecnicas, tecXmuestraXanim, Parametros, Motivos, Individuos, Establecimiento, Raza, InicioDeCarga, Protocolo
+from alpha1.models import Veterinario, EliminacionProtocolo, ValoresReferencia, DetalleAnalisis, CategoriaE, Especializacion, Categoria, Explotacion, Especie, Muestra, Diagnostico, Parametros, Motivos, Individuos, Establecimiento, Raza, SolicitudAnalisis, Protocolo
 admin.site.register(Especializacion)
 admin.site.register(Categoria)
+admin.site.register(CategoriaE)
 admin.site.register(Explotacion)
-admin.site.register(TipoAnimal)
-admin.site.register(TipoMuestra)
-admin.site.register(Tecnicas)
+admin.site.register(Especie)
+admin.site.register(Muestra)
+admin.site.register(Diagnostico)
 admin.site.register(Parametros)
 admin.site.register(Motivos)
 admin.site.register(Establecimiento)
-admin.site.register(InicioDeCarga)
+admin.site.register(SolicitudAnalisis)
 admin.site.register(Raza)
 admin.site.register(Protocolo)
-admin.site.register(tecXmuestraXanim)
+admin.site.register(EliminacionProtocolo)
+admin.site.register(ValoresReferencia)
+admin.site.register(DetalleAnalisis)
+
 
 
 @admin.register(Individuos)

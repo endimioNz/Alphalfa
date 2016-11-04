@@ -41,16 +41,16 @@ class ExplotacionForm(forms.ModelForm):
 		"descripcion",
 		]
 
-class TipoAnimalForm(forms.ModelForm):
+class EspecieForm(forms.ModelForm):
 	class Meta:
-		model = TipoAnimal
+		model = Especie
 		fields = [
 		"descripcion",
 		]
 
-class TipoMuestraForm(forms.ModelForm):
+class MuestraForm(forms.ModelForm):
 	class Meta:
-		model = TipoMuestra
+		model = Muestra
 		fields = [
 		"descripcion",
 		]
@@ -76,9 +76,6 @@ class EstablecimientoForm(forms.ModelForm):
 		"propietario",
 		"RENSPA",
 		"veterinario",
-		"hectareas",
-		"bovinos",
-		"ovinos",
 		"categorias2",
 		"explotacion2",
 
