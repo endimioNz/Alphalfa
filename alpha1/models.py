@@ -114,6 +114,7 @@ class Diagnostico(models.Model):
 	muestra = models.ForeignKey(Muestra)
 	tercerizacion = models.BooleanField()
 	activo = models.BooleanField(default=True)
+	piepagina = models.TextField("Pie de Pagina", null=True, blank=True)
 
 	def __str__(self):
 		return ('%s')%(self.descripcion)
@@ -136,7 +137,8 @@ class Individuos(models.Model):
 		)
 	sexo = models.CharField("Sexo", max_length=1, choices=sexo_choices, null=True, blank=True, default='X')
 	raza = models.ForeignKey(Raza)
-	obs = models.TextField("Observaciones", null=True, blank=True)
+	libretasanitaria = models.CharField(max_length=15, null=True, blank=True)
+	categoriae = models.ForeignKey(categoriaE)
 
 	def __str__(self):
 		return ('%s')%(self.identificacion)
@@ -150,6 +152,7 @@ class Parametros(models.Model):
 		('S', 'Texto'),
 		)
 	tipo_de_dato = models.CharField("Tipo de Dato", max_length=1, choices=tipo_de_dato_choices)
+	unidadmedida = models.CharField("Unidad de Medida",max_length=10)
 
 	def __str__(self):
 		return ('%s')%(self.descripcion)
@@ -161,6 +164,10 @@ class DetalleAnalisis(models.Model):
 	individuo = models.ForeignKey(Individuos)
 	parametros = models.ForeignKey(Parametros)
 	valor = models.CharField(max_length=30)
+
+	class Meta:
+		unique_together = ('solicitud','protocolo','diagnostico', 'individuo', 'parametros',)
+
 
 	def __str__(self):
 		return ('%s, %s, %s, %s, %s')%(self.solicitud, self.protocolo, self.diagnostico, self.individuo, self.parametros)
